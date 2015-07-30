@@ -95,26 +95,29 @@ HTML5 Time polyfill | Jonathan Stipe | https://github.com/jonstipe/time-polyfill
           time_arr.push('0');
         }
         time_arr.push(time_obj.getMinutes().toString());
-        time_arr.push(':');
-        if (time_obj.getSeconds() < 10) {
-          time_arr.push('0');
-        }
-        time_arr.push(time_obj.getSeconds().toString());
-        if (time_obj.getMilliseconds() > 0) {
-          time_arr.push('.');
-          if (time_obj.getMilliseconds() % 100 === 0) {
-            time_arr.push((time_obj.getMilliseconds() / 100).toString());
-          } else if (time_obj.getMilliseconds() % 10 === 0) {
+        if (time_obj.getSeconds() > 0) {
+          time_arr.push(':');
+          if (time_obj.getSeconds() < 10) {
             time_arr.push('0');
-            time_arr.push((time_obj.getMilliseconds() / 10).toString());
-          } else {
-            if (time_obj.getMilliseconds() < 100) {
+          }
+          time_arr.push(time_obj.getSeconds().toString());
+
+          if (time_obj.getMilliseconds() > 0) {
+            time_arr.push('.');
+            if (time_obj.getMilliseconds() % 100 === 0) {
+              time_arr.push((time_obj.getMilliseconds() / 100).toString());
+            } else if (time_obj.getMilliseconds() % 10 === 0) {
               time_arr.push('0');
+              time_arr.push((time_obj.getMilliseconds() / 10).toString());
+            } else {
+              if (time_obj.getMilliseconds() < 100) {
+                time_arr.push('0');
+              }
+              if (time_obj.getMilliseconds() < 10) {
+                time_arr.push('0');
+              }
+              time_arr.push(time_obj.getMilliseconds().toString());
             }
-            if (time_obj.getMilliseconds() < 10) {
-              time_arr.push('0');
-            }
-            time_arr.push(time_obj.getMilliseconds().toString());
           }
         }
         time_arr.push(' ');
