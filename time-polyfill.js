@@ -379,7 +379,6 @@ HTML5 Time polyfill | Jonathan Stipe | https://github.com/jonstipe/time-polyfill
             $(timeField).data('timeoutID', window.setTimeout(timeoutFunc, 700, hiddenField, timeField, increment));
             
           }else{
-            console.log("disabled");
             return false;
           }
         });
@@ -403,7 +402,6 @@ HTML5 Time polyfill | Jonathan Stipe | https://github.com/jonstipe/time-polyfill
             $(timeField).data('timeoutID', window.setTimeout(timeoutFunc, 700, hiddenField, timeField, decrement));
             
           }else{
-            console.log("disabled");
             return false;
           }
         });
